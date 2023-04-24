@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактировать список пользователей</title>
+</head>
+<body bgcolor="#afeeee">
+<form  action="/logout">
+    <button><h3>Logout</h3></button>
+</form>
+<table class ="italic">
+<h1>Изменение данных</h1>
+  <tr>
+    <form th:method="patch" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
+       <td bgcolor="#ffd700">
+         <label for="id"><h3>ID</h3></label>
+         <input readonly type="number" th:field="*{id}" id="id" placeholder="id">
+       </td>
+      <td bgcolor="#f0f8ff">
+        <label for="login"><h3>Login</h3></label><input type="text" th:field="*{login}" id="login"/>
+        <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login error</div>
+      </td>
+       <td bgcolor="#f0f8ff">
+          <label for="password"><h3>Пароль</h3></label><input type="text" th:field="*{password}" id="password">
+          <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+       </td>
+      <br/>
+      <input type="submit" value="ОБНОВИТЬ ПОЛЬЗОВАТЕЛЯ"/>
+    </form>
+  </tr>
+  <br/>
+</table>
+
+</body>
+</html>

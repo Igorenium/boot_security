@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Пользователь</title>
+</head>
+<body  bgcolor="#afeeee">
+<form  action="/logout">
+  <button><h3>Logout</h3></button>
+</form>
+<h1>Найти пользователя</p></h1>
+<table class ="italic">
+  <tr  border="1" bgcolor="#f0f8ff">
+    <th bgcolor="#ffd700"><h2>Id</h2></th>
+    <th><h2>Login</h2></th>
+  </tr>
+  <tr>
+    <h3 ><td bgcolor="#ffd700" th:text="${user.getId()}">ID</td></h3>
+    <h3><td bgcolor="#f0f8ff"  th:text="${user.getLogin()}">Логин</td></h3>
+  </tr>
+</table>
+<br>
+</body>
+</html>

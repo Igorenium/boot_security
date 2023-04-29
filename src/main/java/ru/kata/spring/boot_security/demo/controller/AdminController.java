@@ -22,7 +22,7 @@ public class AdminController {
         User admin = new User();
         admin.setLogin("admin");
         admin.setPassword("{noop}admin");
-        admin.setRoles(Collections.singleton(Role.ADMIN));
+        admin.setRoles(Collections.singleton(Role.ROLE_ADMIN));
         userService.saveUser(admin);
     }
 
@@ -42,8 +42,7 @@ public class AdminController {
     @PostMapping("/new")
     public String create(@ModelAttribute("user") User user) {
         Set<Role> roles = new HashSet<>();
-        roles.add(Role.ADMIN);
-        roles.add(Role.USER);
+        roles.add(Role.ROLE_USER);
 
         user.setRoles(roles);
         userService.saveUser(user);
